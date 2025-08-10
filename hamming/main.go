@@ -1,10 +1,13 @@
-package hamming
+package main
 
 import (
 	"errors"
 	"strings"
 )
 
+func main() {
+	Distance("GAGCCTACTAACGGGAT", "CATCGTAATGACGGCCT")
+}
 func Distance(a, b string) (int, error) {
 	if len(a) != len(b) {
 		return 0, errors.New("Hamming Length must be equal")
@@ -20,7 +23,8 @@ func Distance(a, b string) (int, error) {
 		for _, char := range bReady {
 			h2 = append(h2, string(char))
 		}
-		// GAGCCTACTAACGGGAT
+		// h2[i] = 115,120  == 115
+		// [GAGCCTACTAACGGGAT]
 		// CATCGTAATGACGGCCT
 		// h1[0] = G h2[0] = C
 		var diff int
